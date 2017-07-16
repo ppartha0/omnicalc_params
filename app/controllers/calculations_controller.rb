@@ -81,7 +81,19 @@ class CalculationsController < ApplicationController
         render("calculations/process_payment_template.html.erb")
     end
     
-    
-    
     ######## Random Number Form
+    def random_form
+        
+        render("calculations/random_form_template.html.erb")
+    end
+    
+    def process_random
+        @usermin = params["user_minimum"].to_f
+        @usermax = params["user_maximum"].to_f
+        @random_number = rand(@usermin..@usermax).round(4)
+        render("calculations/process_random_template.html.erb")
+    end
+    
+    
+    
 end
