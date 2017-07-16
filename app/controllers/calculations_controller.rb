@@ -25,7 +25,7 @@ class CalculationsController < ApplicationController
         num_months = @number_of_years*12
         ### Calc: P = r(PV) / (1-(1+r)^-n)
         
-        @monthly_payment = ((monthly_rate*@present_value)/ (1 - (1+monthly_rate)**-num_months)).round(0)
+        @monthly_payment = ((monthly_rate*@present_value)/ (1 - (1+monthly_rate)**-num_months)).round(5)
     
     render("calculations/flexible_payment_template.html.erb")
     end
