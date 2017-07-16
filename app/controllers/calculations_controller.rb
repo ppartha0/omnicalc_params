@@ -38,6 +38,8 @@ class CalculationsController < ApplicationController
     end
     
     ##################### Form Elements ###########################
+    
+    ######## Square Calc Form
     def square_form
     
     render("calculations/square_form_template.html.erb")
@@ -49,4 +51,19 @@ class CalculationsController < ApplicationController
     render("calculations/process_square_template.html.erb")
     end
     
+    ######## Square Root Calc Form
+    def square_root_form
+    
+    render("calculations/square_root_form_template.html.erb")
+    end
+    
+    def process_square_root
+        @user_input = params["the_user_number"].to_i
+        @processed_square_root = @user_input**0.5
+    render("calculations/process_square_root_template.html.erb")
+    end
+    
+    ######## Loan Payment Form
+    
+    ######## Random Number Form
 end
