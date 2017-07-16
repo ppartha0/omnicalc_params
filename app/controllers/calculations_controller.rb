@@ -31,9 +31,9 @@ class CalculationsController < ApplicationController
     end
     
     def flex_random_number
-        #@user_input = params["a_number"].to_i
-        #@square_root = @user_input**0.5
-        
+        @minn = params["minn"].to_i
+        @maxx = params["maxx"].to_i
+        @random_number = rand(@minn..@maxx)
     render("calculations/flexible_random_number_template.html.erb")
     end
     
