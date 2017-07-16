@@ -25,10 +25,21 @@ class CalculationsController < ApplicationController
         num_months = @number_of_years*12
         ### Calc: P = r(PV) / (1-(1+r)^-n)
         
-        @monthly_payment = ((monthly_rate*@present_value)/ (1 - (1+monthly_rate)**-num_months)).round(5)
+        @monthly_payment = ((monthly_rate*@present_value)/ (1 - (1+monthly_rate)**-num_months)).round(2)
     
     render("calculations/flexible_payment_template.html.erb")
     end
+    
+    def flex_random_number
+        #@user_input = params["a_number"].to_i
+        #@square_root = @user_input**0.5
+        
+    render("calculations/flexible_random_number_template.html.erb")
+    end
+    
+    
+    
+    
     
     def square_form
     
