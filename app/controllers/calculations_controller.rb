@@ -64,6 +64,24 @@ class CalculationsController < ApplicationController
     end
     
     ######## Loan Payment Form
+    def payment_form
+        render("calculations/payment_form_template.html.erb")
+    end
+    
+    def process_payment
+        @pct_points = params["user_apr"].to_f
+        @number_of_years = params["user_years"].to_i
+        @present_value = params["user_principal"].to_f
+        monthly_rate = @pct_points/1200
+        num_months = @number_of_years*12
+        ### Calc: P = r(PV) / (1-(1+r)^-n)
+        
+        @monthly_payment = ((monthly_rate*@present_value)/ (1 - (1+monthly_rate)**-num_months)).round(2)
+        
+        render("calculations/process_payment_template.html.erb")
+    end
+    
+    
     
     ######## Random Number Form
 end
